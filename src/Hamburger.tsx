@@ -1,35 +1,31 @@
-import React, {Component, useEffect, useState} from 'react';
-import {
-    Animated,
-    TouchableWithoutFeedback
-} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Animated, TouchableWithoutFeedback } from 'react-native';
+import usePrevious from './usePrevious';
 
 type HamburgerProps = {
-    active: boolean,
-    onPress: () => void,
-    type?: 'spinCross' | 'arrow' | 'spinArrow' | 'cross',
-    color?: string
-}
-
+    active: boolean;
+    onPress: () => void;
+    type?: 'spinCross' | 'arrow' | 'spinArrow' | 'cross';
+    color?: string;
+};
 
 export default function Hamburger(props: HamburgerProps): React.ReactElement | null {
     const { type, active, color } = props;
 
     const [initialized, setInitialized] = useState(false);
-    const [containerAnim, setContainerAnim] = useState();
-    const [topBar, setTopBar] = useState();
-    const [bottomBar, setBottomBar] = useState();
-    const [middleBarOpacity, setMiddleBarOpacity] = useState();
-    const [bottomBarMargin, setBottomBarMargin] = useState();
-    const [topBarMargin, setTopBarMargin] = useState();
-    const [marginLeft, setMarginLeft] = useState();
-    const [width, setWidth] = useState();
+    const [containerAnim, setContainerAnim] = useState<Animated.Value>();
+    const [topBar, setTopBar] = useState<Animated.Value>();
+    const [bottomBar, setBottomBar] = useState<Animated.Value>();
+    const [middleBarOpacity, setMiddleBarOpacity] = useState<Animated.Value>();
+    const [bottomBarMargin, setBottomBarMargin] = useState<Animated.Value>();
+    const [topBarMargin, setTopBarMargin] = useState<Animated.Value>();
+    const [marginLeft, setMarginLeft] = useState<Animated.Value>();
+    const [width, setWidth] = useState<Animated.Value>();
 
     useEffect(() => {
         if (initialized === false) {
-
             if (active) {
-                if (type === "spinArrow") {
+                if (type === 'spinArrow') {
                     setContainerAnim((current) => current || new Animated.Value(1));
                     setTopBar((current) => current || new Animated.Value(1));
                     setBottomBar((current) => current || new Animated.Value(1));
@@ -37,40 +33,38 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                     setMarginLeft((current) => current || new Animated.Value(-13));
                     setBottomBarMargin((current) => current || new Animated.Value(2));
                     setTopBarMargin((current) => current || new Animated.Value(-2));
-                }
-                else if (type === "arrow") {
+                } else if (type === 'arrow') {
                     setTopBar((current) => current || new Animated.Value(1));
                     setBottomBar((current) => current || new Animated.Value(1));
                     setWidth((current) => current || new Animated.Value(14));
                     setMarginLeft((current) => current || new Animated.Value(-13));
                     setBottomBarMargin((current) => current || new Animated.Value(2));
                     setTopBarMargin((current) => current || new Animated.Value(-2));
-                }
-                else if (type === "spinCross") {
+                } else if (type === 'spinCross') {
                     setContainerAnim((current) => current || new Animated.Value(1));
                     setTopBar((current) => current || new Animated.Value(0.9));
                     setBottomBar((current) => current || new Animated.Value(0.9));
                     setBottomBarMargin((current) => current || new Animated.Value(-10));
                     setMiddleBarOpacity((current) => current || new Animated.Value(0));
-                }
-                else {
+                } else {
                     setTopBar((current) => current || new Animated.Value(0.9));
                     setBottomBar((current) => current || new Animated.Value(0.9));
                     setBottomBarMargin((current) => current || new Animated.Value(-10));
                     setMiddleBarOpacity((current) => current || new Animated.Value(0));
                 }
-            } else {
-                setContainerAnim((current) => current || new Animated.Value(0));
-                setTopBar((current) => current || new Animated.Value(0));
-                setBottomBar((current) => current || new Animated.Value(0));
-                setBottomBarMargin((current) => current || new Animated.Value(4));
-                setMiddleBarOpacity((current) => current || new Animated.Value(1));
-                setTopBarMargin((current) => current || new Animated.Value(0));
-                setMarginLeft((current) => current || new Animated.Value(0));
-                setWidth((current) => current || new Animated.Value(25));
             }
+            setContainerAnim((current) => current || new Animated.Value(0));
+            setTopBar((current) => current || new Animated.Value(0));
+            setBottomBar((current) => current || new Animated.Value(0));
+            setBottomBarMargin((current) => current || new Animated.Value(4));
+            setMiddleBarOpacity((current) => current || new Animated.Value(1));
+            setTopBarMargin((current) => current || new Animated.Value(0));
+            setMarginLeft((current) => current || new Animated.Value(0));
+            setWidth((current) => current || new Animated.Value(25));
+
+            setInitialized(true);
         }
-    }, [initialized])
+    }, [initialized]);
 
     function spinCross(): void {
         if (!props.active) {
@@ -80,11 +74,11 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
             }).start();
             Animated.spring(topBar, {
                 useNativeDriver: false,
-                toValue: .9
+                toValue: 0.9
             }).start();
             Animated.spring(bottomBar, {
                 useNativeDriver: false,
-                toValue: .9
+                toValue: 0.9
             }).start();
             Animated.spring(bottomBarMargin, {
                 useNativeDriver: false,
@@ -93,7 +87,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
             Animated.spring(middleBarOpacity, {
                 useNativeDriver: false,
                 toValue: 0,
-                duration: 30
+                speed: 30
             }).start();
         } else {
             Animated.spring(containerAnim, {
@@ -124,11 +118,11 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
         if (!active) {
             Animated.spring(topBar, {
                 useNativeDriver: false,
-                toValue: .9
+                toValue: 0.9
             }).start();
             Animated.spring(bottomBar, {
                 useNativeDriver: false,
-                toValue: .9
+                toValue: 0.9
             }).start();
             Animated.spring(bottomBarMargin, {
                 useNativeDriver: false,
@@ -155,11 +149,10 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
             Animated.spring(middleBarOpacity, {
                 useNativeDriver: false,
                 toValue: 1,
-                duration: 1200
+                speed: 1200
             }).start();
         }
     }
-
 
     function spinArrow(): void {
         if (!active) {
@@ -277,19 +270,20 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
         }
     }
 
-
     function animate(): void {
-        type=="spinArrow" ? spinArrow() :
-          type=="arrow" ? arrow() :
-            type=="spinCross" ? spinCross() :
-              cross();
+        type == 'spinArrow' ? spinArrow() : type == 'arrow' ? arrow() : type == 'spinCross' ? spinCross() : cross();
     }
 
+    const previousActive = usePrevious(props.active);
+    console.log(previousActive);
+
     useEffect(() => {
-        if (initialized) {
-            animate();
+        if (initialized && previousActive != null) {
+            if (props.active !== previousActive) {
+                animate();
+            }
         }
-    }, [active, initialized])
+    }, [active, initialized]);
 
     if (!initialized) {
         return null;
@@ -297,70 +291,75 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
 
     return (
       <TouchableWithoutFeedback
-        onPress={()=> {props.onPress ? props.onPress() : undefined}}>
-          <Animated.View style={{
-              width: 35,
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: 35,
-              transform: [
-                  // @ts-ignore
-                  {rotate: containerAnim.interpolate({
-                          useNativeDriver: false,
-                          inputRange: [0, 1],
-                          outputRange: [
-                              '0deg', '360deg'
-                          ],
-                      })}
-              ]
-          }}>
-              <Animated.View style={{
-                  height: 3,
-                  marginLeft: marginLeft,
-                  width: width,
-                  marginBottom: topBarMargin,
-                  backgroundColor: color ? color : 'black',
-                  transform: [
-                      // @ts-ignore
-                      {rotate: topBar.interpolate({
-                              useNativeDriver: false,
-                              inputRange: [0, 1],
-                              outputRange: [
-                                  '0deg', '-50deg'
-                              ],
-                          })}
-                  ]
-              }} />
-              <Animated.View style={{
-                  height: 3,
-                  width: 25,
-                  opacity: middleBarOpacity,
-                  backgroundColor: color ? color : 'black',
-                  marginTop: 4}} />
-              <Animated.View style={{
-                  height: 3,
-                  marginLeft: marginLeft,
-                  width: width,
-                  backgroundColor: color ? color : 'black',
-                  marginTop: bottomBarMargin,
-                  transform: [
-                      // @ts-ignore
-                      {rotate: bottomBar.interpolate({
-                              useNativeDriver: false,
-                              inputRange: [0, 1],
-                              outputRange: [
-                                  '0deg', '50deg'
-                              ],
-                          })}
-                  ]
-              }} />
+        onPress={() => {
+            props.onPress ? props.onPress() : undefined;
+        }}
+      >
+          <Animated.View
+            style={{
+                width: 35,
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 35,
+                transform: [
+                    {
+                        rotate: containerAnim.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: ['0deg', '360deg']
+                        })
+                    }
+                ]
+            }}
+          >
+              <Animated.View
+                style={{
+                    height: 3,
+                    marginLeft: marginLeft,
+                    width: width,
+                    marginBottom: topBarMargin,
+                    backgroundColor: color ? color : 'black',
+                    transform: [
+                        {
+                            rotate: topBar.interpolate({
+                                inputRange: [0, 1],
+                                outputRange: ['0deg', '-50deg']
+                            })
+                        }
+                    ]
+                }}
+              />
+              <Animated.View
+                style={{
+                    height: 3,
+                    width: 25,
+                    opacity: middleBarOpacity,
+                    backgroundColor: color ? color : 'black',
+                    marginTop: 4
+                }}
+              />
+              <Animated.View
+                style={{
+                    height: 3,
+                    marginLeft: marginLeft,
+                    width: width,
+                    backgroundColor: color ? color : 'black',
+                    marginTop: bottomBarMargin,
+                    transform: [
+                        {
+                            rotate: bottomBar.interpolate({
+                                inputRange: [0, 1],
+                                outputRange: ['0deg', '50deg']
+                            })
+                        }
+                    ]
+                }}
+              />
           </Animated.View>
       </TouchableWithoutFeedback>
     );
-
 }
 
 Hamburger.defaultProps = {
     type: 'cross',
     color: 'white'
-}
+};
