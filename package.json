@@ -1,7 +1,7 @@
 {
   "name": "@psyycker/rn-animated-hamburger",
   "private": false,
-  "version": "0.3.0",
+  "version": "1.0.0-alpha1",
   "description": "Hamburger menu for react-native!",
   "main": "dist/index.js",
   "scripts": {
@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/psyycker/react-native-hamburger",
   "dependencies": {
+    "@types/react": "^16.9.41",
+    "@types/react-native": "^0.62.14",
     "react": "^16.13.1",
     "react-native": "^0.62.2"
   },

@@ -68,45 +68,45 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
 
     function spinCross(): void {
         if (!props.active) {
-            Animated.spring(containerAnim, {
+            Animated.spring(containerAnim as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
             }).start();
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0.9
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0.9
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: -10
             }).start();
-            Animated.spring(middleBarOpacity, {
+            Animated.spring(middleBarOpacity as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0,
                 speed: 30
             }).start();
         } else {
-            Animated.spring(containerAnim, {
+            Animated.spring(containerAnim as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 4
             }).start();
-            Animated.timing(middleBarOpacity, {
+            Animated.timing(middleBarOpacity as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1,
                 duration: 600
@@ -116,37 +116,37 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
 
     function cross(): void {
         if (!active) {
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0.9
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0.9
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: -10
             }).start();
-            Animated.timing(middleBarOpacity, {
+            Animated.timing(middleBarOpacity as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0,
                 duration: 30
             }).start();
         } else {
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 4
             }).start();
-            Animated.spring(middleBarOpacity, {
+            Animated.spring(middleBarOpacity as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1,
                 speed: 1200
@@ -156,60 +156,60 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
 
     function spinArrow(): void {
         if (!active) {
-            Animated.spring(containerAnim, {
+            Animated.spring(containerAnim as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
             }).start();
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
             }).start();
-            Animated.spring(width, {
+            Animated.spring(width as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 14
             }).start();
-            Animated.spring(marginLeft, {
+            Animated.spring(marginLeft as Animated.Value, {
                 useNativeDriver: false,
                 toValue: -13
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 2
             }).start();
-            Animated.spring(topBarMargin, {
+            Animated.spring(topBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: -2
             }).start();
         } else {
-            Animated.spring(containerAnim, {
+            Animated.spring(containerAnim as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(width, {
+            Animated.spring(width as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 25
             }).start();
-            Animated.spring(marginLeft, {
+            Animated.spring(marginLeft as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 4
             }).start();
-            Animated.spring(topBarMargin, {
+            Animated.spring(topBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
@@ -218,52 +218,52 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
 
     function arrow(): void {
         if (!active) {
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
             }).start();
-            Animated.spring(width, {
+            Animated.spring(width as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 14
             }).start();
-            Animated.spring(marginLeft, {
+            Animated.spring(marginLeft as Animated.Value, {
                 useNativeDriver: false,
                 toValue: -13
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 2
             }).start();
-            Animated.spring(topBarMargin, {
+            Animated.spring(topBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: -2
             }).start();
         } else {
-            Animated.spring(topBar, {
+            Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBar, {
+            Animated.spring(bottomBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(width, {
+            Animated.spring(width as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 25
             }).start();
-            Animated.spring(marginLeft, {
+            Animated.spring(marginLeft as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
-            Animated.spring(bottomBarMargin, {
+            Animated.spring(bottomBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 4
             }).start();
-            Animated.spring(topBarMargin, {
+            Animated.spring(topBarMargin as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0
             }).start();
@@ -303,7 +303,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                 height: 35,
                 transform: [
                     {
-                        rotate: containerAnim.interpolate({
+                        rotate: (containerAnim  as Animated.Value).interpolate({
                             inputRange: [0, 1],
                             outputRange: ['0deg', '360deg']
                         })
@@ -320,7 +320,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                     backgroundColor: color ? color : 'black',
                     transform: [
                         {
-                            rotate: topBar.interpolate({
+                            rotate: (topBar as Animated.Value).interpolate({
                                 inputRange: [0, 1],
                                 outputRange: ['0deg', '-50deg']
                             })
@@ -346,7 +346,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                     marginTop: bottomBarMargin,
                     transform: [
                         {
-                            rotate: bottomBar.interpolate({
+                            rotate: (bottomBar as Animated.Value).interpolate({
                                 inputRange: [0, 1],
                                 outputRange: ['0deg', '50deg']
                             })
