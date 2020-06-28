@@ -21,9 +21,9 @@
   "author": "Remy Villulles",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sankhadeeproy007/react-native-hamburger/issues"
+    "url": "https://github.com/psyycker/react-native-hamburger/issues"
   },
-  "homepage": "https://github.com/sankhadeeproy007/react-native-hamburger#readme",
+  "homepage": "https://github.com/psyycker/react-native-hamburger",
   "dependencies": {
     "react": "^16.13.1",
     "react-native": "^0.62.2"
