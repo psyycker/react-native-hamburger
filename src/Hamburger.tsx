@@ -278,7 +278,6 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
     }
 
     const previousActive = usePrevious(props.active);
-    console.log(previousActive);
 
     useEffect(() => {
         if (initialized && previousActive != null) {
