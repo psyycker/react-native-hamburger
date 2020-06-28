@@ -1,5 +1,6 @@
 {
   "name": "@psyycker/rn-animated-hamburger",
+  "private": false,
   "version": "0.1.0",
   "description": "Hamburger menu for react-native!",
   "main": "dist/index.js",
