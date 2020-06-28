@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { Animated, TouchableWithoutFeedback } from 'react-native';
 import usePrevious from './usePrevious';
+
+const useState = React.useState;
+const useEffect = React.useEffect;
 
 type HamburgerProps = {
     active: boolean;
@@ -67,7 +70,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
     }, [initialized]);
 
     function spinCross(): void {
-        if (!props.active) {
+        if (active) {
             Animated.spring(containerAnim as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
@@ -115,7 +118,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
     }
 
     function cross(): void {
-        if (!active) {
+        if (active) {
             Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 0.9
@@ -155,7 +158,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
     }
 
     function spinArrow(): void {
-        if (!active) {
+        if (active) {
             Animated.spring(containerAnim as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
@@ -217,7 +220,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
     }
 
     function arrow(): void {
-        if (!active) {
+        if (active) {
             Animated.spring(topBar as Animated.Value, {
                 useNativeDriver: false,
                 toValue: 1
