@@ -1,0 +1,34 @@
+{
+  "name": "@psyycker/rn-animated-hamburger",
+  "version": "0.1.0",
+  "description": "Hamburger menu for react-native!",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:psyycker/animated-hamburger.git"
+  },
+  "keywords": [
+    "react-native",
+    "hamburger",
+    "menu",
+    "animated"
+  ],
+  "author": "Remy Villulles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sankhadeeproy007/react-native-hamburger/issues"
+  },
+  "homepage": "https://github.com/sankhadeeproy007/react-native-hamburger#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.62.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  }
+}
