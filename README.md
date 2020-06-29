@@ -18,6 +18,7 @@ import Hamburger from '@psyycker/rn-animated-hamburger';
 | onPress  | true      |         | () => void | Callback called when the menu is clicked                                                     |
 | type     | false     | cross   | string     | Defines the type of the menu icon. Options can be `cross` `spinCross` `arrow` `spinArrow`    |
 | color    | false     | white   | string     | It'll change the color of the component. Any color which is usable in react native will work |
+| borderRadius    | false     | false   | boolean     | Allow to set a border radius on the lines (6px) |
 
 ## Contribute
 

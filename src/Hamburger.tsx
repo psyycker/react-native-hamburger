@@ -10,6 +10,7 @@ type HamburgerProps = {
     onPress: () => void;
     type?: 'spinCross' | 'arrow' | 'spinArrow' | 'cross';
     color?: string;
+    borderRadius?: boolean
 };
 
 export default function Hamburger(props: HamburgerProps): React.ReactElement | null {
@@ -320,6 +321,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                     width: width,
                     marginBottom: topBarMargin,
                     backgroundColor: color ? color : 'black',
+                    borderRadius: props.borderRadius ? '6px' : undefined,
                     transform: [
                         {
                             rotate: (topBar as Animated.Value).interpolate({
@@ -336,6 +338,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                     width: 25,
                     opacity: middleBarOpacity,
                     backgroundColor: color ? color : 'black',
+                    borderRadius: props.borderRadius ? '6px' : undefined,
                     marginTop: 4
                 }}
               />
@@ -345,6 +348,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
                     marginLeft: marginLeft,
                     width: width,
                     backgroundColor: color ? color : 'black',
+                    borderRadius: props.borderRadius ? '6px' : undefined,
                     marginTop: bottomBarMargin,
                     transform: [
                         {
@@ -363,5 +367,6 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement | n
 
 Hamburger.defaultProps = {
     type: 'cross',
-    color: 'white'
+    color: 'white',
+    borderRadius: false
 };
